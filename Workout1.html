@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Direct Health</title>
+		<meta charset="UTF-8">
+	 </head>
+
+	 <body id="container">
+		<img id="banner" src="DirecTV_Workout_Banner_v1.png"></img>
+		<p id="words"></p>
+		<script>
+			showImage("banner", false);
+			var t1 = setTimeout(function(){showImage("banner", true); text = "Stand Up and Stretch"; document.getElementById("words").innerHTML = text; }, 2000);
+			var t2 = setTimeout(function(){showImage("banner", false);}, 4000);
+			var t2 = setTimeout(function(){showImage("banner", true); text = "Jumping Jacks"; document.getElementById("words").innerHTML = text;}, 6000);
+
+			function showImage(id, visible) {
+				var img = document.getElementById(id);
+				img.style.visibility = (visible ? 'visible': 'hidden');
+			}
+			/*function myTimer() {
+				var text = "";
+				if (index < exercise.size()){
+					text += exercise[index];
+					//while (index < exercise.length) {
+					//	text += exercise[index];
+					//}
+					document.getElementById("words").innerHTML = text;
+					index++;
+				}
+			}*/
+		</script>
+		<style>
+		#container{
+			height:150px;
+			width:1000px;
+			position:relative;
+		}
+	 	#banner{
+	 		left:0;
+	 		top:0;
+	 		width:1000px;
+	 		height:150px;
+	 		position:absolute;
+	 	}
+	 	#words{
+	 		z-index=100;
+	 		position:absolute;
+	 		color:white;
+	 		font: "Trebuchet MS";
+	 		font-size:42px;
+	 		font-weight:bold;
+	 		left:500px;
+	 		top:20px;
+	 	}
+		</style>
+	 </body>
+ </html>
