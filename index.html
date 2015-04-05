@@ -13,7 +13,7 @@
 	 <body id="container">
 		<img id="banner" src="img/DirecTV_Workout_Banner_v1.png"></img>
 		<p id="text">
-			Jumping Jacks!
+			text="";
 		</p>
 
 		<style>
@@ -50,12 +50,30 @@
 		</style>
 
 		<script type = "text/javascript">
+			showImage("banner", false);
+			var start = 5000;
+			var index = 0;
+			var exercise = ["Stand Up and Stretch", "Jumping Jacks", "Run in Place"];
+
+			var t1 = setTimeout(function(){showImage("banner", true); text = exercise[index++]; document.getElementById("text").innerHTML = text; startTimer(10);}, start);
+			var t2 = setTimeout(function(){showImage("banner", false);}, start += 11000);
+			
+			var t3 = setTimeout(function(){showImage("banner", true); text = exercise[index++]; document.getElementById("text").innerHTML = text; startTimer(10);}, start += 11000);
+			var t4 = setTimeout(function(){showImage("banner", false);}, start += 11000);
+
+			
 			var timeInSecs;
 			var ticker;
+
+			function showImage(id, visible) {
+				var img = document.getElementById(id);
+				img.style.visibility = (visible ? 'visible': 'hidden');
+			}
 
 			function startTimer(secs){
 				timeInSecs = parseInt(secs)-1;
 				ticker = setInterval("tick()",1000);   // every second
+				secs = "";
 			}
 
 			function tick() {
@@ -68,9 +86,7 @@
 					// startTimer(60);  // remove forward slashes in front of startTimer to repeat if required
 				}
 				document.getElementById("countdown").innerHTML = "Time Left: " + secs;
-			}
-
-			startTimer(10);  // 60 seconds 
+			} 
 
 		</script>
 		<span id="countdown">Time Left: 10</span>
