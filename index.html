@@ -3,13 +3,12 @@
 	<head>
 		<title>Direct Health</title>
 		<meta charset="UTF-8">
-	    <script type="text/javascript">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
 	      // setResolution call has to be made in the head section!
 	      if(!!navigator.setResolution)
 	        navigator.setResolution(1280,720);
 	    </script>
 	 </head>
-
 	 <body id="container">
 		<img id="banner" src="img/DirecTV_Workout_Banner_v3.png"></img>
 		<p id="text">
@@ -18,50 +17,97 @@
 
 		<style>
 		#container{
-			height:150px;
-			width:1000px;
+			height:500px;
+			width:2000px;
 			left:0px;
-			top:550px;
+			top:75%;
 			position:absolute;
 		}
 	 	#banner{
-	 		width:500px;
-	 		height:73px;
+	 		width:40%;
+	 		height:25%;
 	 		position:absolute;
 	 	}
 	 	#text{
 	 		z-index=100;
 	 		position:absolute;
 	 		color:white;
-	 		font-size:24px;
+	 		font-size:32px;
 	 		font-weight:bold;
-	 		left:250px;
-	 		top:16px;
+	 		left:20%;
+	 		top:7%;
 	 	}
 	 	#countdown{
-	 		font-size:24px;
+	 		font-size:32px;
 	 		font-weight:bold;
 	 		color:white;
 	 		z-index=100;
 	 		position:absolute;
-	 		left:250px;
-	 		top:16px;
+	 		left:20%;
+	 		top:7%;
 	 	}
 		</style>
 
-		<script type = "text/javascript">
-			bothVisible(false);
-			var start = 5000;
-			var index = 0;
-			var exercise = ["Stand Up and Stretch", "Jumping Jacks", "Run in Place"];
+		<span id="countdown"></span>
 
-			var t1 = setTimeout(function(){bothVisible(true); text = exercise[index++]; document.getElementById("text").innerHTML = text; startTimer(10);}, start);
-			var t2 = setTimeout(function(){bothVisible(false); showImage("countdown", false);}, start += 11000);
-			var t3 = setTimeout(function(){bothVisible(true); text = exercise[index++]; document.getElementById("text").innerHTML = text; startTimer(10);}, start += 11000);
-			var t4 = setTimeout(function(){bothVisible(false); showImage("countdown", false);}, start += 11000);
+		<script>
+			bothVisible(false);
+			var start;
+			var orig_start;
+			var index = 0;
+			var timer = 20;
+			var buffer;
+			var offset;
+			var duration;
+			var num_times;
+
+			$.ajax({
+				method: "GET",
+				async: false,
+				url: "http://10.125.1.147:8080/tv/getTunedPrivate?",
+				dataType: "json",
+				success: function(data){
+					offset = data.offset;
+					duration = data.duration;
+					var info = data.category.pre;
+	    			for(i in info){
+	    				if(info[i] == "Sports"){
+	    					start = 60000;
+	    					buffer = (timer * 1000) + 1000;
+	    				} else if(info[i] == "Action/Adventure"){
+	    					start = 1800000;
+	    					buffer = (timer * 1000) + 1000;
+	    				} else if(info[i] == "TV Series"){
+	    					start = 600000;
+	    					buffer = (timer * 1000) + 1000;
+	    				}
+	    			}
+	    			orig_start = start;
+	    			var diff = duration - offset;
+	    			var add = start/1000 + buffer/1000;
+	    			num_times = diff / add;
+				}
+			});
+        		
+			var exercise = ["Stand Up and Stretch", "Jumping Jacks", "Run in Place", "Squats", "Crunches",  "Arm Circles"];
+			var t1 = setTimeout(function(){bothVisible(true); text = exercise[index++]; document.getElementById("text").innerHTML = text; startTimer(timer);}, 0);
+			var t2 = setTimeout(function(){bothVisible(false); showImage("countdown", false);}, buffer);
 
 			var timeInSecs;
 			var ticker;
+
+			for(i = 0; i < num_times; i++){
+				if(index = exercise.length){
+					index = 0;
+				}
+				notify();
+			}
+
+			function notify(){
+				var t3 = setTimeout(function(){bothVisible(true); text = exercise[index++]; document.getElementById("text").innerHTML = text; startTimer(timer);}, start += orig_start);
+				var t4 = setTimeout(function(){bothVisible(false); showImage("countdown", false);}, start += buffer);
+			}
+
 			function bothVisible(visible) {
 				showImage("banner", visible); 
 				showImage("text", visible);
@@ -89,8 +135,6 @@
 				}
 				document.getElementById("countdown").innerHTML = "Time Left: " + secs;
 			} 
-
 		</script>
-		<span id="countdown"></span>
 	 </body>
  </html>
