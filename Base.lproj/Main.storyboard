@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="a55-ni-TtF">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <scenes>
+        <!--Pop Over View Controller-->
+        <scene sceneID="iis-sW-9jU">
+            <objects>
+                <viewController id="kgj-pp-R9a" customClass="PopOverViewController" customModule="DirectHealth" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TcN-Fh-dbo"/>
+                        <viewControllerLayoutGuide type="bottom" id="kOy-r5-VSh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ezv-B0-n5p">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DirecTV_Workout_Logo_v1.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="niX-s7-7Ac">
+                                <rect key="frame" x="69" y="122" width="182" height="183"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="183" id="blV-Ld-CW6"/>
+                                    <constraint firstAttribute="width" constant="182" id="dI5-Vh-LmZ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You chose cardio!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wDh-Mw-rb8">
+                                <rect key="frame" x="55" y="28" width="210" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enjoy your workout!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyb-r1-dRS">
+                                <rect key="frame" x="43" y="69" width="234" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="wDh-Mw-rb8" secondAttribute="centerX" id="2hg-R3-BcL"/>
+                            <constraint firstItem="niX-s7-7Ac" firstAttribute="top" secondItem="fyb-r1-dRS" secondAttribute="bottom" constant="20" id="6QE-Dg-kHH"/>
+                            <constraint firstAttribute="centerX" secondItem="fyb-r1-dRS" secondAttribute="centerX" id="RQP-sj-0pP"/>
+                            <constraint firstItem="fyb-r1-dRS" firstAttribute="top" secondItem="wDh-Mw-rb8" secondAttribute="bottom" constant="8" id="x7M-BS-RbT"/>
+                            <constraint firstItem="wDh-Mw-rb8" firstAttribute="top" secondItem="TcN-Fh-dbo" secondAttribute="bottom" constant="8" id="y9A-Ce-WF7"/>
+                            <constraint firstAttribute="centerX" secondItem="niX-s7-7Ac" secondAttribute="centerX" id="zmK-dk-9kw"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="lZO-cC-UwW" appends="YES" id="0k3-Nx-Q9H"/>
+                        </connections>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WUs-bv-Opx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="down" id="lZO-cC-UwW">
+                    <connections>
+                        <action selector="swipeDown:" destination="kgj-pp-R9a" id="8Ju-os-foS"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="893" y="347"/>
+        </scene>
+        <!--Remote View Controller-->
+        <scene sceneID="u5q-m9-O1C">
+            <objects>
+                <viewController storyboardIdentifier="RemotePage" id="bXV-yf-EcO" customClass="RemoteViewController" customModule="DirectHealth" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0Rm-vd-ebe"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jj1-uN-GNP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="19l-U4-5ms">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="yeT-16-xfX" appends="YES" id="5uF-dT-HPl"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="PTy-HG-9u5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6If-Hx-JZN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="yeT-16-xfX">
+                    <connections>
+                        <action selector="swipeLeft:" destination="bXV-yf-EcO" id="YLg-1g-3AA"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="925" y="-357"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController storyboardIdentifier="MainPage" id="vXZ-lx-hvc" customClass="ViewController" customModule="DirectHealth" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleAspectFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Adg-HC-gew">
+                                <rect key="frame" x="0.0" y="33" width="320" height="27"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="OgG-kP-cf5"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Choose Your Workout">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="28" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="unnamed-1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="E7R-zR-5Il">
+                                <rect key="frame" x="16" y="113" width="137" height="137"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="unnamed-3.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="loa-fr-9uT">
+                                <rect key="frame" x="16" y="265" width="137" height="137"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="unnamed-4.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="d47-ur-Jeg">
+                                <rect key="frame" x="16" y="415" width="137" height="137"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="unnamed-5.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="lBL-Oo-EpQ">
+                                <rect key="frame" x="167" y="415" width="137" height="137"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="unnamed.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="F7m-a3-Us3">
+                                <rect key="frame" x="167" y="265" width="137" height="137"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="unnamed-2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="gbn-1Z-LQP">
+                                <rect key="frame" x="167" y="113" width="137" height="137"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98i-V5-Kzu">
+                                <rect key="frame" x="16" y="113" width="137" height="137"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="137" id="AaJ-2Z-b22"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Cardio">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cardio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="AIb-K9-WbT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcN-Dy-Hq6">
+                                <rect key="frame" x="16" y="265" width="137" height="136"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="136" id="v7w-zZ-1Ca"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Yoga">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xnW-B3-Wcb">
+                                <rect key="frame" x="167" y="265" width="137" height="137"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Strength">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5t0-3s-hgN">
+                                <rect key="frame" x="167" y="415" width="137" height="138"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Core">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="WORKOUTS &amp; ROUTINES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dvo-VC-RCA">
+                                <rect key="frame" x="16" y="84" width="242" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="vV1-zg-FOt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.41446586277173914" green="0.41446586277173914" blue="0.41446586277173914" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="828-xi-ZRC">
+                                <rect key="frame" x="172" y="125" width="137" height="114"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="114" id="F4s-op-PIf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Stamina">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cW8-JB-53Q">
+                                <rect key="frame" x="16" y="415" width="137" height="137"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Agility">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0053923233695651884" green="0.0053923233695651884" blue="0.0053923233695651884" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="828-xi-ZRC" secondAttribute="centerX" constant="-80.5" id="LXX-db-5rA"/>
+                            <constraint firstAttribute="centerX" secondItem="98i-V5-Kzu" secondAttribute="centerX" constant="75.5" id="SQd-f2-7xQ"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="77H-3p-dYQ" appends="YES" id="lDi-Ca-s8b"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="Avh-CD-zU9"/>
+                    <connections>
+                        <segue destination="kgj-pp-R9a" kind="modal" identifier="ChoseWorkoutSegue" id="9WT-0u-hIh"/>
+                        <segue destination="bXV-yf-EcO" kind="push" identifier="SwipeSegue" id="VBc-wa-mnS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="77H-3p-dYQ">
+                    <connections>
+                        <action selector="swiperight:" destination="vXZ-lx-hvc" id="F7p-8J-qFZ"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="225" y="-174"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0yh-vm-rwf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="a55-ni-TtF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eTQ-3i-StW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="QIX-I5-PmR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ois-BH-XKr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-292" y="-174"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="DirecTV_Workout_Logo_v1.jpeg" width="299" height="299"/>
+        <image name="unnamed-1.jpg" width="150" height="150"/>
+        <image name="unnamed-2.jpg" width="150" height="150"/>
+        <image name="unnamed-3.jpg" width="150" height="150"/>
+        <image name="unnamed-4.jpg" width="150" height="150"/>
+        <image name="unnamed-5.jpg" width="150" height="150"/>
+        <image name="unnamed.jpg" width="150" height="150"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
