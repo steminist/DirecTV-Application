@@ -11,7 +11,7 @@
 	 </head>
 
 	 <body id="container">
-		<img id="banner" src="img/DirecTV_Workout_Banner_v1.png"></img>
+		<img id="banner" src="img/DirecTV_Workout_Banner_v3.png"></img>
 		<p id="text">
 			text="";
 		</p>
@@ -20,13 +20,13 @@
 		#container{
 			height:150px;
 			width:1000px;
-			position:relative;
+			left:0px;
+			top:550px;
+			position:absolute;
 		}
 	 	#banner{
-	 		left:0;
-	 		top:0;
-	 		width:1000px;
-	 		height:150px;
+	 		width:500px;
+	 		height:73px;
 	 		position:absolute;
 	 	}
 	 	#text{
@@ -35,8 +35,8 @@
 	 		color:white;
 	 		font-size:24px;
 	 		font-weight:bold;
-	 		left:500px;
-	 		top:50px;
+	 		left:250px;
+	 		top:16px;
 	 	}
 	 	#countdown{
 	 		font-size:24px;
@@ -44,33 +44,36 @@
 	 		color:white;
 	 		z-index=100;
 	 		position:absolute;
-	 		left:500px;
-	 		top:50px;
+	 		left:250px;
+	 		top:16px;
 	 	}
 		</style>
 
 		<script type = "text/javascript">
-			showImage("banner", false);
+			bothVisible(false);
 			var start = 5000;
 			var index = 0;
 			var exercise = ["Stand Up and Stretch", "Jumping Jacks", "Run in Place"];
 
-			var t1 = setTimeout(function(){showImage("banner", true); text = exercise[index++]; document.getElementById("text").innerHTML = text; startTimer(10);}, start);
-			var t2 = setTimeout(function(){showImage("banner", false);}, start += 11000);
-			
-			var t3 = setTimeout(function(){showImage("banner", true); text = exercise[index++]; document.getElementById("text").innerHTML = text; startTimer(10);}, start += 11000);
-			var t4 = setTimeout(function(){showImage("banner", false);}, start += 11000);
+			var t1 = setTimeout(function(){bothVisible(true); text = exercise[index++]; document.getElementById("text").innerHTML = text; startTimer(10);}, start);
+			var t2 = setTimeout(function(){bothVisible(false); showImage("countdown", false);}, start += 11000);
+			var t3 = setTimeout(function(){bothVisible(true); text = exercise[index++]; document.getElementById("text").innerHTML = text; startTimer(10);}, start += 11000);
+			var t4 = setTimeout(function(){bothVisible(false); showImage("countdown", false);}, start += 11000);
 
-			
 			var timeInSecs;
 			var ticker;
-
+			function bothVisible(visible) {
+				showImage("banner", visible); 
+				showImage("text", visible);
+			}
 			function showImage(id, visible) {
 				var img = document.getElementById(id);
 				img.style.visibility = (visible ? 'visible': 'hidden');
 			}
 
 			function startTimer(secs){
+				document.getElementById("countdown").innerHTML = "Time Left: " + secs;
+				showImage("countdown", true);
 				timeInSecs = parseInt(secs)-1;
 				ticker = setInterval("tick()",1000);   // every second
 				secs = "";
@@ -81,7 +84,6 @@
 				if (secs>0) {
 					timeInSecs--;
 				} else {
-					document.getElementById("countdown").innerHTML = "Done!";
 					clearInterval(ticker); // stop counting at zero
 					// startTimer(60);  // remove forward slashes in front of startTimer to repeat if required
 				}
@@ -89,6 +91,6 @@
 			} 
 
 		</script>
-		<span id="countdown">Time Left: 10</span>
+		<span id="countdown"></span>
 	 </body>
  </html>
